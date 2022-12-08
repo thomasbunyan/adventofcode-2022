@@ -30,7 +30,7 @@ func Run() {
 
 	sort.Ints(elves[:])
 
-	fmt.Printf("Elf: %v\n", elves[(len(elves)-1)])
+	fmt.Printf("Top elf: %v\n", elves[(len(elves)-1)])
 
 	fmt.Printf("Top 3: %v\n", elves[(len(elves)-1)]+elves[(len(elves)-2)]+elves[(len(elves)-3)])
 }
