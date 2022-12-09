@@ -7,6 +7,7 @@ import (
 
 	"github.com/thomasbunyan/adventofcode-2022/day1"
 	"github.com/thomasbunyan/adventofcode-2022/day2"
+	"github.com/thomasbunyan/adventofcode-2022/day3"
 )
 
 type Input struct {
@@ -30,6 +31,8 @@ func main() {
 		day1.Run()
 	case "2":
 		day2.Run()
+	case "3":
+		day3.Run()
 	default:
 		log.Fatal("[ERROR] invalid day")
 	}
