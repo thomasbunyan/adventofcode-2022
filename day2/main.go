@@ -17,13 +17,13 @@ type ShapeData struct {
 	Alias string
 	Value int32
 	Win   string
-	Loose string
+	Lose  string
 }
 
 var Guide = map[string]ShapeData{
-	"A": {Alias: "rock", Value: 1, Win: "Z", Loose: "Y"},
-	"B": {Alias: "paper", Value: 2, Win: "X", Loose: "Z"},
-	"C": {Alias: "scissors", Value: 3, Win: "Y", Loose: "X"},
+	"A": {Alias: "rock", Value: 1, Win: "Z", Lose: "Y"},
+	"B": {Alias: "paper", Value: 2, Win: "X", Lose: "Z"},
+	"C": {Alias: "scissors", Value: 3, Win: "Y", Lose: "X"},
 	"X": {Alias: "rock", Value: 1, Win: "C"},
 	"Y": {Alias: "paper", Value: 2, Win: "A"},
 	"Z": {Alias: "scissors", Value: 3, Win: "B"},
@@ -47,28 +47,28 @@ func Run() {
 
 		if Guide[opponent].Win == player {
 			// opponent wins
-			scoreA += 0
+			scoreA += LOSS
 		} else if Guide[player].Win == opponent {
 			// player wins
-			scoreA += 6
+			scoreA += WIN
 		} else {
 			// draw
-			scoreA += 3
+			scoreA += DRAW
 		}
 
 		switch player {
 		case "X":
-			// loose
+			// lose
 			scoreB += int(Guide[Guide[opponent].Win].Value)
-			scoreB += 0
+			scoreB += LOSS
 		case "Y":
 			// draw
 			scoreB += int(Guide[opponent].Value)
-			scoreB += 3
+			scoreB += DRAW
 		case "Z":
 			// win
-			scoreB += int(Guide[Guide[opponent].Loose].Value)
-			scoreB += 6
+			scoreB += int(Guide[Guide[opponent].Lose].Value)
+			scoreB += WIN
 		}
 	}
 
